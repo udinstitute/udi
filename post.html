@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Site!</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        form {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        label {
+            font-size: 1.2em;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background: #ff7e5f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #feb47b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Site!</h1>
+    <p>Please enter your name below:</p>
+    <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeSqYYS_DKJeISy9vIVuXp-HPscuXK5UGhtNkGFB2HP8g9eNw/formResponse" method="POST">
+        <label for="name">Name:</label>
+        <textarea id="name" name="entry.1697173190" rows="2" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('googleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = event.target;
+
+            // Create a new FormData object from the form
+            var formData = new FormData(form);
+
+            // Send the form data using fetch
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                mode: 'no-cors' // This is important to avoid CORS issues
+            }).then(function(response) {
+                // After submission, redirect to index.html
+                window.location.href = 'index.html';
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
