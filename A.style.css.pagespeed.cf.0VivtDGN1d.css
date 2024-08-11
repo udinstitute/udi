@@ -391,7 +391,7 @@ textarea:invalid, input:invalid, textarea:required, input:required {
 }
 
 .section-heading h2 {
-  font-size: 36px;
+  font-size: 86px;
   text-transform: capitalize;
   margin-bottom: 5px;
   display: block;
@@ -400,7 +400,7 @@ textarea:invalid, input:invalid, textarea:required, input:required {
 
 @media only screen and (max-width:767px) {
   .section-heading h2 {
-    font-size: 24px
+    font-size: 84px
   }
 }
 
